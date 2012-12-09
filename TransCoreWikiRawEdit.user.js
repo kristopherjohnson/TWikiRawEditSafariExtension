@@ -6,9 +6,12 @@
 // @include https://atl-tech-ctr.transcore.com/twiki/
 // @include http://cvs.tcore.com/twiki/bin/view/*
 // @include http://cvs.tcore.com/twiki/
+// @include https://metro.narwhalgroup.com/twiki/bin/view/*
+// @https://metro.narwhalgroup.com/twiki/
 // ==/UserScript==
 
 var changeEditLinks = function() {
+    console.log("TransCoreWikiRawEdit");
     var editLinks = document.evaluate(
         "//a[@title='Edit this topic text']",
         document,
@@ -22,11 +25,21 @@ var changeEditLinks = function() {
     // one is still a WYSIWYG editor.
 
     if (editLinks.snapshotLength > 0) {
-        var editLink = editLinks.snapshotItem(0);
-        editLink.href += ';nowysiwyg=1';
-        editLink.title = 'Raw Edit this topic text';
-        editLink.accessKey = 'w';
-        editLink.innerHTML = 'Edit';
+        for (var i = 0; i < editLinks.snapshotLength; i++) {
+            var editLink = editLinks.snapshotItem(i);
+
+            // Set query parameter nowysiwyg=1
+            console.log(JSON.stringify(editLink.href));
+            if (editLink.href.indexOf(';nowysiwyg=0') >= 0)
+                editLink.href = editLink.href.replace(';nowysiwyg=0', ';nowysiwyg=1');
+            else
+                editLink.href += ';nowysiwyg=1';
+            console.log(JSON.stringify(editLink.href));
+
+            editLink.title = 'Raw Edit this topic text';
+            editLink.accessKey = 'w';
+            editLink.innerHTML = 'Edit';
+        };
     }
 }
 
