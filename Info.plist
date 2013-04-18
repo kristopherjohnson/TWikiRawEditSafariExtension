@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Kristopher Johnson</string>
 	<key>Builder Version</key>
-	<string>8536.26.17</string>
+	<string>8536.28.10</string>
 	<key>CFBundleDisplayName</key>
 	<string>TransCore Wiki Raw Edit</string>
 	<key>CFBundleIdentifier</key>
@@ -35,6 +35,8 @@
 			<string>http://cvs.tcore.com/twiki/</string>
 			<string>https://metro.narwhalgroup.com/twiki/bin/view/*</string>
 			<string>https://metro.narwhalgroup.com/twiki/</string>
+			<string>https://cloud.narwhalgroup.com/twiki/bin/view/*</string>
+			<string>https://cloud.narwhalgroup.com/twiki/</string>
 		</array>
 	</dict>
 	<key>Description</key>
@@ -50,6 +52,7 @@
 				<string>atl-tech-ctr.transcore.com</string>
 				<string>cvs.tcore.com</string>
 				<string>metro.narwhalgroup.com</string>
+				<string>cloud.narwhalgroup.com</string>
 			</array>
 			<key>Include Secure Pages</key>
 			<true/>
